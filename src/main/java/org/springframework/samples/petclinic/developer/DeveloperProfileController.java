@@ -1,6 +1,8 @@
 package org.springframework.samples.petclinic.developer;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.LinkedHashMap;
@@ -28,6 +30,18 @@ public class DeveloperProfileController {
 		profile.put("status", "Active Contribution Mode");
 
 		return profile;
+	}
+
+	@PostMapping("/developer")
+	public Map<String, String> createDeveloper(@RequestBody Map<String, String> request) {
+
+		Map<String, String> create = new LinkedHashMap<>();
+
+		create.put("name", request.get("name"));
+		create.put("skill", request.get("skill"));
+		create.put("status", "Developer created successfully");
+
+		return create;
 	}
 
 }

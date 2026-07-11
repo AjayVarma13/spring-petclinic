@@ -1,5 +1,7 @@
 package org.springframework.samples.petclinic.developer;
 
+import org.springframework.samples.petclinic.developer.entity.Developer;
+import org.springframework.samples.petclinic.developer.service.DeveloperService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,6 +14,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/developers")
 public class DeveloperProfileController {
+
+	private final DeveloperService developerService;
+
+	public DeveloperProfileController(DeveloperService developerService) {
+		this.developerService = developerService;
+	}
 
 	@GetMapping("/profile")
 	public Map<String, Object> getExperiencedDeveloperProfile() {
@@ -42,6 +50,17 @@ public class DeveloperProfileController {
 		create.put("status", "Developer created successfully");
 
 		return create;
+
+	}
+
+	@PostMapping
+	public Developer createDeveloperUsingJpa(@RequestBody Developer developer) {
+		return this.developerService.save(developer);
+	}
+
+	@GetMapping
+	public List<Developer> getDevelopers() {
+		return this.developerService.findAll();
 	}
 
 }

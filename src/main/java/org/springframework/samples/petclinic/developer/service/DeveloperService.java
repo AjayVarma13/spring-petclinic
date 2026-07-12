@@ -23,4 +23,12 @@ public class DeveloperService {
 		return this.developerRepository.findAll();
 	}
 
+	public Developer findById(Long id) {
+		return this.developerRepository.findById(id).orElse(null);
+	}
+
+	public void deleteById(Long id) {
+		this.developerRepository.deleteById(id);
+	}
+
 }

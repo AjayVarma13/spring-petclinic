@@ -1,5 +1,7 @@
 package org.springframework.samples.petclinic.developer;
 
+import org.springframework.web.bind.annotation.PathVariable;
+
 import org.springframework.samples.petclinic.developer.entity.Developer;
 import org.springframework.samples.petclinic.developer.service.DeveloperService;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -61,6 +63,19 @@ public class DeveloperProfileController {
 	@GetMapping
 	public List<Developer> getDevelopers() {
 		return this.developerService.findAll();
+	}
+
+	@GetMapping("/{id}")
+	public Developer getDeveloperById(@PathVariable Long id) {
+		return this.developerService.findById(id);
+	}
+
+	@DeleteMapping("/{id}")
+	public String deleteDeveloper(@PathVariable Long id) {
+
+		this.developerService.deleteById(id);
+
+		return "Developer deleted successfully";
 	}
 
 }

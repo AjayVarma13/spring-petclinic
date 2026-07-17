@@ -78,4 +78,10 @@ public class DeveloperProfileController {
 		return "Developer deleted successfully";
 	}
 
+	@PutMapping("/{id}")
+	public Developer updateDeveloper(@PathVariable Long id, @RequestBody Developer developer) {
+
+		return this.developerService.updateDeveloper(id, developer);
+	}
+
 }

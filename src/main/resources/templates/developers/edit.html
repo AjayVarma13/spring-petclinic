@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <title>Edit Developer</title>
+</head>
+
+<body>
+
+<h1>Edit Developer</h1>
+
+@{/developers/update/{id}(id=${developer.id})}
+
+    <input type="hidden" th:field="*{id}" />
+
+    <label>Name</label>
+    <input type="text" th:field="*{name}" />
+
+    <br><br>
+
+    <label>Skill</label>
+    <input type="text" th:field="*{skill}" />
+
+    <br><br>
+
+    <button type="submit">
+        Update
+    </button>
+
+</form>
+
+</body>
+</html>

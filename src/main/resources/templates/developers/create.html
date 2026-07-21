@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Edit Developer</title>
+    <title>Add Developer</title>
 
     <style>
         body {
@@ -44,11 +44,9 @@
 
 <body>
 
-    <h1>Edit Developer</h1>
+    <h1>Add Developer</h1>
 
-    <form th:action="@{/developers/update/{id}(id=${developer.id})}" th:object="${developer}" method="post">
-
-        <input type="hidden" th:field="*{id}">
+    <form th:action="@{/developers}" th:object="${developer}" method="post">
 
         <div>
             <label>Name</label>
@@ -60,7 +58,7 @@
             <input type="text" th:field="*{skill}">
         </div>
 
-        <button type="submit">Update</button>
+        <button type="submit">Save</button>
 
     </form>
 

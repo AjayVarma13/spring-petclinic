@@ -43,4 +43,20 @@ public class DeveloperUiController {
 		return "redirect:/developers";
 	}
 
+	@GetMapping("/developers/new")
+	public String showCreateForm(Model model) {
+
+		model.addAttribute("developer", new Developer());
+
+		return "developers/create";
+	}
+
+	@PostMapping("/developers")
+	public String saveDeveloper(Developer developer) {
+
+		this.developerService.save(developer);
+
+		return "redirect:/developers";
+	}
+
 }

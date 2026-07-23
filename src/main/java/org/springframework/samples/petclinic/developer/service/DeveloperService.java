@@ -1,5 +1,6 @@
 package org.springframework.samples.petclinic.developer.service;
 
+import org.springframework.samples.petclinic.developer.exception.DeveloperNotFoundException;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -24,7 +25,9 @@ public class DeveloperService {
 	}
 
 	public Developer findById(Long id) {
-		return this.developerRepository.findById(id).orElse(null);
+
+		return this.developerRepository.findById(id)
+			.orElseThrow(() -> new DeveloperNotFoundException("Developer not found with id: " + id));
 	}
 
 	public void deleteById(Long id) {

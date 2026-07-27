@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.samples.petclinic.developer.entity.Developer;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import jakarta.validation.Valid;
+import org.springframework.validation.BindingResult;
 
 @Controller
 public class DeveloperUiController {
@@ -36,7 +38,11 @@ public class DeveloperUiController {
 	}
 
 	@PostMapping("/developers/update/{id}")
-	public String updateDeveloper(@PathVariable Long id, Developer developer) {
+	public String updateDeveloper(@PathVariable Long id, @Valid Developer developer, BindingResult result) {
+
+		if (result.hasErrors()) {
+			return "developers/edit";
+		}
 
 		this.developerService.updateDeveloper(id, developer);
 
@@ -52,7 +58,11 @@ public class DeveloperUiController {
 	}
 
 	@PostMapping("/developers")
-	public String saveDeveloper(Developer developer) {
+	public String saveDeveloper(@Valid Developer developer, BindingResult result) {
+
+		if (result.hasErrors()) {
+			return "developers/create";
+		}
 
 		this.developerService.save(developer);
 

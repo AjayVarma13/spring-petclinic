@@ -1,5 +1,6 @@
 package org.springframework.samples.petclinic.developer.entity;
 
+import jakarta.validation.constraints.NotBlank;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,8 +13,10 @@ public class Developer {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@NotBlank(message = "Name is required")
 	private String name;
 
+	@NotBlank(message = "Skill is required")
 	private String skill;
 
 	public Long getId() {

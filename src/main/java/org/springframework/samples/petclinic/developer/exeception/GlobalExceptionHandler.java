@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class GlobalExceptionHandler {
 
 	@ExceptionHandler(DeveloperNotFoundException.class)
+	@ResponseStatus(HttpStatus.NOT_FOUND)
 	public String handleDeveloperNotFound(DeveloperNotFoundException ex, Model model) {
 
 		model.addAttribute("message", ex.getMessage());

@@ -47,16 +47,25 @@
     <h1>Add Developer</h1>
 
     <form th:action="@{/developers}" th:object="${developer}" method="post">
-
         <div>
-            <label>Name</label>
-            <input type="text" th:field="*{name}">
-        </div>
+       <label>Name</label>
+       <input type="text" th:field="*{name}">
 
-        <div>
-            <label>Skill</label>
-            <input type="text" th:field="*{skill}">
-        </div>
+      <p class="error"
+       th:if="${#fields.hasErrors('name')}"
+       th:errors="*{name}">
+      </p>
+</div>
+
+    <div>
+     <label>Skill</label>
+     <input type="text" th:field="*{skill}">
+
+        <p class="error"
+       th:if="${#fields.hasErrors('skill')}"
+       th:errors="*{skill}">
+       </p>
+    </div>
 
         <button type="submit">Save</button>
 

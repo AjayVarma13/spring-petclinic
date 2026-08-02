@@ -71,13 +71,20 @@
                         Edit
                     </a>
                     <a th:href="@{/developers/delete/{id}(id=${developer.id})}"
-                       onclick="return confirm('Are you sure you want to delete this developer?')">
+                        onclick="openDeleteModal(event, this.href)">
                         Delete
-                    </a>    
+                    </a>
+ 
                 </td>
             </tr>
         </tbody>
     </table>
+ <script>   
+  function openDeleteModal(event, deleteUrl) {
+    event.preventDefault();
+    alert("Custom delete modal will come next. Delete URL: " + deleteUrl);
+}
+</script>
 
 </body>
 

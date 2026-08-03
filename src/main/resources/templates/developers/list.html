@@ -40,6 +40,35 @@
             background-color: green;
             border-radius: 4px;
         }
+        .modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-box {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 350px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.modal-actions {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.modal-actions button {
+    margin-left: 10px;
+}
+
     </style>
 </head>
 
@@ -82,9 +111,44 @@
  <script>   
   function openDeleteModal(event, deleteUrl) {
     event.preventDefault();
-    alert("Custom delete modal will come next. Delete URL: " + deleteUrl);
+
+    document.getElementById('deleteUrl').value = deleteUrl;
+    document.getElementById('deleteModal').style.display = 'flex';
 }
+
+function closeDeleteModal() {
+    document.getElementById('deleteModal').style.display = 'none';
+}
+
+function confirmDelete() {
+    window.location.href = document.getElementById('deleteUrl').value;
+}
+
 </script>
+<div id="deleteModal" class="modal-overlay">
+
+    <div class="modal-box">
+
+        <h3>Delete Developer</h3>
+
+        <p>Are you sure you want to delete this developer?</p>
+
+        <input type="hidden" id="deleteUrl">
+
+        <div class="modal-actions">
+            <button type="button" onclick="closeDeleteModal()">
+                Cancel
+            </button>
+
+            <button type="button" onclick="confirmDelete()">
+                Delete
+            </button>
+        </div>
+
+    </div>
+
+</div>
+
 
 </body>
 

@@ -1,7 +1,7 @@
 package org.springframework.samples.petclinic.developer;
 
 import org.springframework.web.bind.annotation.PathVariable;
-
+import org.springframework.http.ResponseEntity;
 import org.springframework.samples.petclinic.developer.entity.Developer;
 import org.springframework.samples.petclinic.developer.service.DeveloperService;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -71,11 +71,11 @@ public class DeveloperProfileController {
 	}
 
 	@DeleteMapping("/{id}")
-	public String deleteDeveloper(@PathVariable Long id) {
+	public ResponseEntity<Void> deleteDeveloper(@PathVariable Long id) {
 
 		this.developerService.deleteById(id);
 
-		return "Developer deleted successfully";
+		return ResponseEntity.ok().build();
 	}
 
 	@PutMapping("/{id}")

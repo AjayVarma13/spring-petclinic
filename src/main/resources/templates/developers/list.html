@@ -110,18 +110,42 @@
     </table>
  <script>   
   function openDeleteModal(event, deleteUrl) {
+
     event.preventDefault();
 
-    document.getElementById('deleteUrl').value = deleteUrl;
-    document.getElementById('deleteModal').style.display = 'flex';
+    const developerId =
+        deleteUrl.substring(deleteUrl.lastIndexOf('/') + 1);
+
+    const apiDeleteUrl =
+        '/api/v1/developers/' + developerId;
+
+    document.getElementById('deleteUrl').value =
+        apiDeleteUrl;
+
+    document.getElementById('deleteModal').style.display =
+        'flex';
 }
 
 function closeDeleteModal() {
     document.getElementById('deleteModal').style.display = 'none';
 }
 
-function confirmDelete() {
-    window.location.href = document.getElementById('deleteUrl').value;
+async function confirmDelete() {
+
+    const deleteUrl =
+        document.getElementById('deleteUrl').value;
+
+    const response = await fetch(deleteUrl, {
+        method: 'DELETE'
+    });
+
+    if (response.ok) {
+
+        closeDeleteModal();
+
+        alert('Developer deleted successfully');
+    }
+
 }
 
 </script>

@@ -99,11 +99,11 @@
                     <a th:href="@{/developers/edit/{id}(id=${developer.id})}">
                         Edit
                     </a>
-                    <a th:href="@{/developers/delete/{id}(id=${developer.id})}"
-   th:data-name="${developer.name}"
-   onclick="openDeleteModal(event, this.href, this.dataset.name)">
-    Delete
-</a>
+                <a th:href="@{/developers/delete/{id}(id=${developer.id})}"
+                   th:data-name="${developer.name}"
+                   onclick="openDeleteModal(event, this.href, this.dataset.name)">
+                   Delete
+                 </a>
 
  
                 </td>

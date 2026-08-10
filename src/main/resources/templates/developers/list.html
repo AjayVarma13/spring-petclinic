@@ -91,7 +91,9 @@
         </thead>
 
         <tbody>
-            <tr th:each="developer : ${developers}">
+            <tr th:each="developer : ${developers}"
+                th:id="'developer-row-' + ${developer.id}">
+
                 <td th:text="${developer.id}"></td>
                 <td th:text="${developer.name}"></td>
                 <td th:text="${developer.skill}"></td>

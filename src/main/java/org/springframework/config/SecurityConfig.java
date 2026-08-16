@@ -11,7 +11,10 @@ public class SecurityConfig {
 
 	@Bean
 	InMemoryUserDetailsManager userDetailsService() {
-
+      UserDetails user = User.withDefaultPasswordEncoder()
+			.username("ajay")
+			.password("ajay123")
+			.roles("USER")
 	}
 
 }

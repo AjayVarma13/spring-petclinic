@@ -15,6 +15,7 @@ public class SecurityConfig {
 			.username("ajay")
 			.password("ajay123")
 			.roles("USER")
+            .build();
 	}
 
 }

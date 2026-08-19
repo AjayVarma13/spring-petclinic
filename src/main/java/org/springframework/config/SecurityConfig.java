@@ -16,7 +16,7 @@ public class SecurityConfig {
 			.password("ajay123")
 			.roles("USER")
             .build();
-             return InMemoryUserDetailsManager(user);
+             return new InMemoryUserDetailsManager();
 	}
 
 }

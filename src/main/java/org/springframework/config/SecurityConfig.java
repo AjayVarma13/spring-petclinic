@@ -12,7 +12,7 @@ public class SecurityConfig {
 	@Bean
 	InMemoryUserDetailsManager userDetailsService() {
       UserDetails users = User.withDefaultPasswordEncoder()
-			.username("ajay")
+			.username("vijay")
 			.password("ajay123")
 			.roles("USER")
             .build();

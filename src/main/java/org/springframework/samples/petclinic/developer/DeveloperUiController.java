@@ -70,7 +70,7 @@ public class DeveloperUiController {
 	}
 
 	@GetMapping("/developers/delete/{id}")
-	public String deleteDeveloper(@PathVariable Long id) {
+	public String deleteDeveloper(@PathVariable int id) {
 
 		this.developerService.deleteById(id);
 

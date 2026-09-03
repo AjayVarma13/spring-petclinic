@@ -21,7 +21,7 @@ public class DeveloperService {
 	}
 
 	public List<Developer> findAll() {
-		return this.developerRepository.findAll();
+		return this.developerRepository.findById();
 	}
 
 	public Developer findById(Long id) {

@@ -31,7 +31,7 @@ public class DeveloperService {
 	}
 
 	public void deleteById(Long id) {
-		this.developerRepository.delete(id);
+		this.developerRepository.deleteById(id);
 	}
 
 	public Developer updateDeveloper(Long id, Developer developer) {

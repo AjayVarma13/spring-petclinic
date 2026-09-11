@@ -69,7 +69,7 @@ public class DeveloperUiController {
 		return "redirect:/developers";
 	}
 
-	@GetRequestMapping("/developers/delete/{id}")
+	@GetMapping("/developers/delete/{id}")
 	public String deleteDeveloper(@PathVariable Long id) {
 
 		this.developerService.deleteById(id);

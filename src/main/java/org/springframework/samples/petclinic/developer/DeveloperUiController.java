@@ -11,7 +11,7 @@ import jakarta.validation.Valid;
 import org.springframework.validation.BindingResult;
 
 @Controller
-public class DeveloperUiController {
+public class DeveloperUiControllers {
 
 	private final DeveloperService developerService;
 
